@@ -10,7 +10,7 @@ This is a social network project that allows users to connect, interact, and sen
 - Private messaging system for sending and receiving messages
 - Inbox and Sent views to manage private messages
 - Stylish and responsive user interface
-- 
+
 ## Technologies Used
 
 - Python
@@ -18,7 +18,7 @@ This is a social network project that allows users to connect, interact, and sen
 - HTML/CSS
 - JavaScript
 - SQLite database (can be easily switched to another database)
-- 
+
 ## Requirements
 
 - Python 3.x
@@ -67,7 +67,7 @@ We welcome contributions to improve the social network project. If you would lik
 3. Make the necessary changes and commit them.
 4. Push your changes to your forked repository.
 5. Submit a pull request describing your changes.
-6. 
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
