@@ -1,0 +1,87 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}FriendHub{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<!-- Column with latest news for authenticated users -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>News Feed</h2>
+      <div class="search-container">
+        <form method="GET" class="search-form">
+          <input type="text" name="q" class="search-input" value="{{ search_query }}" placeholder="Search...">
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </div>
+      {% if not posts %}
+      <p class="nothing-found">Nothing found</p>
+      {% endif %}
+      <div class="post-list">
+        {% for post in posts %}
+        <div class="post">
+          <h3><a href="{% url 'posts:post_detail' post.pk %}">{{ post.title }}</a></h3>
+          <p><strong><a href="{% url 'accounts:profile' post.author.username|lower %}">{{ post.author.username }}</a></strong> at {{ post.created_at }}</p>
+          <div class="likes-block">
+            <p class="likes-text">Likes: <span class="likes-count" id="likes-count-{{ post.pk }}">{{ post.likes.count }}</span></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="pagination">
+        {% if is_paginated %}
+        <span class="step-links">
+          {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+          <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+        </span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+<!-- Centered container with the heading and login form -->
+<div class="container-home d-flex justify-content-center align-items-center">
+  <div class="row">
+    <!-- Left half -->
+    <div class="col-md-6">
+      <div class="jumbotron text-center">
+        <h1 class="display-4">FriendHub</h1>
+        <p class="lead">FriendHub helps you stay connected</p>
+        <p class="lead">and share with the people in your life.</p>
+      </div>
+    </div>
+    <!-- Right half -->
+    <div class="col-md-6">
+      <div class="d-flex flex-column align-items-center">
+        <form method="post" class="login-form" action="{% url 'accounts:login' %}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Log In</button>
+          <p class="text-center mt-3">Don't have an account? <a href="{% url 'accounts:signup' %}">Sign Up</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

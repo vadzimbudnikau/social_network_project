@@ -1,0 +1,109 @@
+/* private_messages/css/messages.css */
+.send-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.send-message-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.send-message-container form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.send-message-container form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.send-message-container form button:hover {
+    background-color: #0056b3;
+}
+
+/* Общий стиль для шаблона Inbox */
+.inbox {
+    padding: 20px;
+    text-align: center;
+}
+
+.message-list {
+    list-style: none;
+    padding: 0;
+}
+
+.message-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message-details {
+    margin-bottom: 5px;
+}
+
+.message-content {
+    margin-bottom: 10px;
+}
+
+/* Стиль для формы Reply */
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+/* Общий стиль для шаблона Sent Messages */
+.sent-messages {
+    padding: 20px;
+}
+
+.sent-messages .message-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sent-messages .message-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.sent-messages .message-details {
+    margin-bottom: 5px;
+}
+
+.sent-messages .message-content {
+    margin-bottom: 10px;
+}

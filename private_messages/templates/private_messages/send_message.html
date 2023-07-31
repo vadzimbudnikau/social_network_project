@@ -1,0 +1,15 @@
+<!-- private_messages/templates/private_messages/send_message.html -->
+{% extends 'accounts/base.html' %}
+
+{% block title %}Send Message{% endblock %}
+
+{% block content %}
+  <div class="send-message-container">
+    <h2>Send a Message</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn-primary">Send</button>
+    </form>
+  </div>
+{% endblock %}

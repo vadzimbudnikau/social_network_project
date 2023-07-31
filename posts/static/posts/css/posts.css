@@ -1,0 +1,266 @@
+/* posts/static/posts/css/style.css */
+
+/* Общий стиль для формы создания поста */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для заголовка формы */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стиль для кнопки создания поста */
+button {
+    display: block;
+    margin: 20px auto;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Стиль для полей ввода */
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Стиль для ссылки "Cancel" */
+a.cancel {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a.cancel:hover {
+    text-decoration: underline;
+}
+
+/* Обновленный CSS стиль для контейнера с постами на главной странице */
+.post-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.post h3 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.post p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.post p strong {
+    font-weight: bold;
+}
+
+.post-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.post-buttons a {
+    margin-left: 5px;
+}
+
+.post-buttons a.btn {
+    font-size: 14px;
+}
+
+/* Улучшенный стиль для пагинации */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination .current {
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+/* Стиль для контейнера с детальной информацией о посте */
+.post-detail {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px; /* Добавлено, чтобы разделять посты */
+    position: relative;
+}
+
+.post-detail h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.post-detail p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Стиль для кнопок редактирования и удаления поста */
+.post-detail .btn-group {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.post-detail .btn-group .btn {
+    margin-right: 5px;
+}
+
+.btn-danger {
+    background-color: #f9f9f9;
+    color: #e35050;
+}
+
+/* Стиль для комментариев */
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment .com-text {
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+.comment .com-aut {
+    font-size: 12px; /* Изменим размер текста для автора на 32 пикселя */
+}
+
+/* Стиль для кнопок редактирования и удаления комментария */
+.comment-buttons {
+    margin-top: 10px;
+}
+
+.comment-buttons .btn {
+    margin-right: 5px;
+}
+/* Стиль для кнопки Like */
+.btn-like {
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Стиль для кнопки Unlike */
+.btn-unlike {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Стиль для иконки сердца */
+.btn-like::before {
+    content: "\2665";
+    padding-right: 5px;
+}
+
+/* Стиль для иконки сердца в состоянии Unlike */
+.btn-unlike::before {
+    content: "\2661";
+    padding-right: 5px;
+}
+/* Стиль для формы лайка */
+.like-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+}
+
+/* Расстояние между кнопками */
+.like-form, .btn-primary, .btn-danger {
+    margin-right: 10px;
+}
+/* Убрать рамку при наведении на кнопку */
+.like-form button.btn-like:hover, .like-form button.btn-unlike:hover {
+    background-color: #f9f9f9;
+    text-decoration: underline;
+}
+/* Стиль для блока Likes */
+.likes-block {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  /* Стиль для количества лайков */
+  .likes-count {
+    font-weight: bold;
+    color: #dc3545;
+  }

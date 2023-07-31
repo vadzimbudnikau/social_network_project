@@ -1,0 +1,423 @@
+/* Common styles for body, .container, header, nav, main, and footer */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-home {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-list li {
+    margin-bottom: 10px;
+}
+
+.user-list li a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #007bff;
+    transition: background-color 0.3s;
+}
+
+.user-list li a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Стили для списка подписчиков и подписок */
+.user-list li a {
+    background-color: #f8f8f8;
+    color: #007bff;
+}
+
+.user-list li a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Styles for login form */
+form.login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form.login-form input {
+    width: 100%;
+    padding: 10px 2px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for login button */
+form.login-form button {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Custom styles for home.html */
+.jumbotron {
+    text-align: left;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.jumbotron h1 {
+    color: #007bff;
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+/* Styles for navigation menu */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+}
+
+/* Styles for navigation menu items */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #eee;
+    text-decoration: none;
+}
+
+/* Styles for right elements */
+nav .right {
+    display: flex;
+    align-items: center;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    margin: 10px;
+}
+
+/* Custom styles for profile.html */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile h2 {
+    color: #333;
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.profile-avatar-container {
+    margin-top: 20px;
+}
+
+.profile-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: center;
+    max-width: 500px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.profile-info p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.profile-info strong {
+    color: #333;
+}
+
+.profile a.btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.profile a.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for the Change Password button */
+.profile a.btn-primary:nth-of-type(2) {
+    margin-top: 10px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 480px) {
+    .profile-info {
+        font-size: 14px;
+    }
+
+    .profile-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Styles for password change done page */
+.password-change-done {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.password-change-done h2 {
+    margin-bottom: 20px;
+    color: #006400;
+}
+
+.password-change-done p {
+    margin-bottom: 20px;
+}
+
+.password-change-done a {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.password-change-done a:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for signup form */
+.signup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Common style for login form */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for form title */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style for login button */
+button {
+    display: block;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 185px;
+    /* Adjust padding as needed */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for input fields */
+input {
+    width: 100%;
+    padding: 10px 3px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for link to the registration page */
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Общий контейнер для формы поиска */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Форма для поиска */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    box-shadow: none;
+    margin-bottom: -20px;
+}
+
+.search-input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 1px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* CSS style for the "Nothing found" message */
+.nothing-found {
+    text-align: center;
+    font-size: 18px;
+    color: #ff0000;
+    /* You can change the color as you like */
+    margin-top: 10px;
+    /* Add some space between the message and the form */
+}
+
+/* Кнопки подписки и отписки */
+.profile-buttons form,
+.profile-buttons a {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    box-shadow: none;
+
+}
+
+/* CSS style for profile stats block */
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-stats p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    margin-right: 15px;
+}
+
+.profile-stats strong {
+    color: #007bff;
+}

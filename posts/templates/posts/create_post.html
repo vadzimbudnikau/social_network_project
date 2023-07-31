@@ -1,0 +1,12 @@
+<!-- posts/templates/posts/create_post.html -->
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+  <h2>Create New Post</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-primary">Create Post</button>
+  </form>
+  <a class="cancel" href="{% url 'accounts:home' %}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Post Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="post-detail">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <p><strong><a href="{% url 'accounts:profile' post.author.username|lower %}">{{ post.author.username }}</a></strong> at {{ post.created_at }}</p>
+                <div class="likes-block">
+                    <p class="likes-text">Likes: <span class="likes-count" id="likes-count">{{ total_likes }}</span></p>
+                </div>
+            </div>
+            {% if user.is_authenticated and user == post.author %}
+            <div class="btn-group">
+                <a href="{% url 'posts:post_update' post.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'posts:post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+            </div>
+            {% endif %}
+            <form method="POST" action="{% url 'posts:like' post.pk %}" class="like-form">
+                {% csrf_token %}
+                <button type="submit" class="btn-like {% if liked %}btn-unlike{% endif %}">Like{% if liked %}d{% endif %}</button>
+            </form>
+            <hr>
+            <h3>Comments</h3>
+            <div class="comments">
+                {% for comment in comments %}
+                <div class="comment">
+                    <p class="com-text">{{ comment.text }}</p>
+                    <p class="com-aut"><strong><a href="{% url 'accounts:profile' comment.author.username|lower %}">{{ post.author.username }}</a></strong> said at {{ comment.created_at }}
+                    </p>
+                    {% if user.is_authenticated and user == comment.author %}
+                    <div class="comment-buttons">
+                        <a href="{% url 'posts:comment_update' comment.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'posts:comment_delete' comment.pk %}" class="btn btn-danger">Delete</a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% if user.is_authenticated %}
+            <<form method="post" action="{% url 'posts:post_detail' post.pk %}" class="comment-form">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

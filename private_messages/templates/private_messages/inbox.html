@@ -1,0 +1,23 @@
+<!-- inbox.html -->
+
+{% extends 'accounts/base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+  <div class="inbox">
+    <h2>Inbox</h2>
+    <ul class="message-list">
+      {% for message in inbox %}
+        <li class="message-item">
+          <div class="message-details">
+            <p><strong>From:</strong> {{ message.sender }}</p>
+            <p><strong>Date:</strong> {{ message.timestamp }}</p>
+          </div>
+          <p class="message-content">{{ message.content }}</p>
+          <a href="{% url 'private_messages:send_message' %}?receiver={{ message.sender.id }}" class="btn-primary">Reply</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

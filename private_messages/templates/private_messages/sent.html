@@ -1,0 +1,20 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Sent Messages{% endblock %}
+
+{% block content %}
+  <div class="container sent-messages">
+    <h2>Sent Messages</h2>
+    <ul class="message-list">
+      {% for message in sent_messages %}
+        <li class="message-item">
+          <div class="message-details">
+            <p><strong>To:</strong> {{ message.recipient }}</p>
+            <p><strong>Date:</strong> {{ message.timestamp }}</p>
+          </div>
+          <p class="message-content">{{ message.content }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
