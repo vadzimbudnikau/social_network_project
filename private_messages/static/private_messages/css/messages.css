@@ -76,10 +76,38 @@
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .btn-primary:hover {
     background-color: #0056b3;
+    text-decoration: none;
+}
+
+/* Стиль для блока с кнопкой "Mark as Read" */
+.mark-read-form form {
+    display: inline-block;
+    margin-top: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    border: none;
+    box-shadow: none;
+}
+
+.mark-read-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.mark-read-button:hover {
+    background-color: #218838;
     text-decoration: none;
 }
 

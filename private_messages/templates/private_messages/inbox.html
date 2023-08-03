@@ -1,23 +1,31 @@
-<!-- inbox.html -->
-
 {% extends 'accounts/base.html' %}
 
 {% block title %}Inbox{% endblock %}
 
 {% block content %}
-  <div class="inbox">
-    <h2>Inbox</h2>
-    <ul class="message-list">
-      {% for message in inbox %}
-        <li class="message-item">
-          <div class="message-details">
-            <p><strong>From:</strong> {{ message.sender }}</p>
-            <p><strong>Date:</strong> {{ message.timestamp }}</p>
-          </div>
-          <p class="message-content">{{ message.content }}</p>
-          <a href="{% url 'private_messages:send_message' %}?receiver={{ message.sender.id }}" class="btn-primary">Reply</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+<div class="inbox">
+  <h2>Inbox</h2>
+  <p><strong>Unread Messages:</strong> {{ unread_count }}</p>
+  <ul class="message-list">
+    {% for message in inbox %}
+    <li class="message-item">
+      <div class="message-details">
+        <p><strong>From:</strong> {{ message.sender }}</p>
+        <p><strong>Date:</strong> {{ message.timestamp }}</p>
+      </div>
+      <p class="message-content">{{ message.content }}</p>
+      <div class="mark-read-form">
+        <form method="post" action="{% url 'private_messages:inbox' %}">
+          {% csrf_token %}
+          <input type="hidden" name="message_id" value="{{ message.id }}">
+          {% if not message.is_read %}
+          <button type="submit" class="mark-read-button">Mark as Read</button>
+          {% endif %}
+        </form>
+      </div>
+      <a href="{% url 'private_messages:send_message' %}?receiver={{ message.sender.id }}" class="btn-primary">Reply</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.views.generic import ListView
 from .models import Message
@@ -70,23 +70,22 @@ class SendMessageView(LoginRequiredMixin, View):
 class InboxView(LoginRequiredMixin, ListView):
     """
     View for displaying the inbox of the authenticated user.
-
-    Requires the user to be logged in. Displays the received messages of the authenticated user.
-
-    Attributes:
-        model (Message): The Message model class.
-        template_name (str): The template name for rendering the inbox page.
-        context_object_name (str): The context variable name for the inbox messages list.
-        paginate_by (int): The number of messages to display per page.
-
-    Methods:
-        get_queryset(self): Get the list of messages filtered by recipient.
     """
-
     model = Message
     template_name = 'private_messages/inbox.html'
     context_object_name = 'inbox'
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        """
+        Get the context data for the inbox view, including the count of unread messages.
+        """
+        context = super().get_context_data(**kwargs)
+        unread_count = Message.objects.filter(recipient=self.request.user, is_read=False).count()
+        self.request.user.profile.unread_message_count = unread_count
+        self.request.user.profile.save()
+        context['unread_count'] = unread_count
+        return context
 
     def get_queryset(self):
         """
@@ -96,6 +95,26 @@ class InboxView(LoginRequiredMixin, ListView):
             QuerySet: The filtered messages queryset.
         """
         return Message.objects.filter(recipient=self.request.user).order_by('-timestamp')
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handle POST request to mark a message as read.
+        """
+        message_id = request.POST.get('message_id')
+
+        if message_id:
+            message = get_object_or_404(Message, pk=message_id)
+
+            if message.recipient == request.user and not message.is_read:
+                message.is_read = True
+                message.save()
+
+                # Update the count of unread messages in the user's profile
+                unread_count = Message.objects.filter(recipient=request.user, is_read=False).count()
+                request.user.profile.unread_message_count = unread_count
+                request.user.profile.save()
+
+        return redirect('private_messages:inbox')
 
 
 class SentView(LoginRequiredMixin, ListView):

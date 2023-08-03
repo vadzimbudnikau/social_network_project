@@ -149,6 +149,15 @@ nav .right {
 main {
     flex: 1;
 }
+/* Стили для счетчика непрочитанных сообщений */
+.unread-count {
+    background-color: #ff4136; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    font-size: 12px; /* Размер шрифта */
+    padding: 2px 6px; /* Внутренние отступы */
+    border-radius: 10px; /* Закругленные углы */
+    margin-left: 5px; /* Отступ слева от текста */
+}
 
 footer {
     background-color: #f9f9f9;
